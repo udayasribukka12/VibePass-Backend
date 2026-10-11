@@ -1,5 +1,5 @@
 
-package com.vibepass.backend.config;
+        package com.vibepass.backend.config;
 
 import com.vibepass.backend.security.JwtAuthenticationFilter;
 
@@ -36,50 +36,28 @@ public class SecurityConfig {
                 .formLogin(form -> form.disable())
                 .httpBasic(basic -> basic.disable())
                 .sessionManagement(session ->
-                        session.sessionCreationPolicy(
-                                SessionCreationPolicy.STATELESS
-                        )
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authorizeHttpRequests(auth -> auth
 
-                        // Login, registration and password recovery
+                        // Authentication endpoints
                         .requestMatchers("/api/auth/**").permitAll()
 
                         // Public event browsing
-                        .requestMatchers(
-                                HttpMethod.GET,
-                                "/api/events",
-                                "/api/events/"
-                        ).permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/events/**").permitAll()
 
-                        .requestMatchers(
-                                HttpMethod.GET,
-                                "/api/events/**"
-                        ).permitAll()
-
-                        // Event creation, update and deletion: ADMIN only
+                        // Event creation, editing and deletion require ADMIN
                         .requestMatchers("/api/events/**").hasRole("ADMIN")
 
-                        // Admin-only access to all bookings
-                        .requestMatchers(
-                                HttpMethod.GET,
-                                "/api/bookings"
-                        ).hasRole("ADMIN")
+                        // All bookings: ADMIN only
+                        .requestMatchers(HttpMethod.GET, "/api/bookings").hasRole("ADMIN")
 
-                        // A logged-in user can request their booking list.
-                        // The controller must verify ownership of the user ID.
-                        .requestMatchers(
-                                HttpMethod.GET,
-                                "/api/bookings/user/**"
-                        ).authenticated()
-
-                        // Other booking operations require authentication
+                        // Individual users must authenticate for booking operations
                         .requestMatchers("/api/bookings/**").authenticated()
 
-                        // Profile and other API endpoints require authentication
+                        // All other API endpoints require authentication
                         .requestMatchers("/api/**").authenticated()
 
-                        // Non-API frontend routes
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(
@@ -95,7 +73,6 @@ public class SecurityConfig {
 
         CorsConfiguration config = new CorsConfiguration();
 
-        // Allow Vite on localhost ports during development
         config.setAllowedOriginPatterns(List.of(
                 "http://localhost:*",
                 "http://127.0.0.1:*",
@@ -103,18 +80,12 @@ public class SecurityConfig {
         ));
 
         config.setAllowedMethods(List.of(
-                "GET",
-                "POST",
-                "PUT",
-                "PATCH",
-                "DELETE",
-                "OPTIONS"
+                "GET", "POST", "PUT", "PATCH",
+                "DELETE", "OPTIONS"
         ));
 
         config.setAllowedHeaders(List.of(
-                "Authorization",
-                "Content-Type",
-                "Accept"
+                "Authorization", "Content-Type", "Accept"
         ));
 
         config.setAllowCredentials(false);
