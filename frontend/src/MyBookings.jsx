@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 
-const BOOKING_API = "http://localhost:8080/api/bookings";
+const BOOKING_API = "https://vibepass-backend-ggb9.onrender.com/api/bookings";
 
 function formatDate(value) {
     if (!value) return "Not available";

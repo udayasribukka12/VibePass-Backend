@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 
-const PROFILE_API = "http://localhost:8080/api/users/me";
+const PROFILE_API = "https://vibepass-backend-ggb9.onrender.com/api/users/me";
 
 export default function Profile({ user, onProfileUpdated }) {
     const navigate = useNavigate();

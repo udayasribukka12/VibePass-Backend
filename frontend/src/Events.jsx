@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = "http://localhost:8080/api/events";
+const API_URL = "https://vibepass-backend-ggb9.onrender.com/api/events";
 
 // Keep sample events for existing imports in other pages.
 const baseEvents = [

@@ -18,9 +18,9 @@ import AdminTicketVerification from "./pages/AdminTicketVerification.jsx";
 import Profile from "./Profile.jsx";
 import "./App.css";
 
-const API = "http://localhost:8080/api/auth";
-const BOOKING_API = "http://localhost:8080/api/bookings";
-const EVENT_API = "http://localhost:8080/api/events";
+const API = "https://vibepass-backend-ggb9.onrender.com/api/auth";
+const BOOKING_API = "https://vibepass-backend-ggb9.onrender.com/api/bookings";
+const EVENT_API = "https://vibepass-backend-ggb9.onrender.com/api/events";
 
 // Attach the saved JWT to Axios requests.
 axios.interceptors.request.use(

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/bookings/verify-ticket";
+const API_URL = "https://vibepass-backend-ggb9.onrender.com/api/bookings/verify-ticket";
 
 export default function AdminTicketVerification() {
     const [ticketReference, setTicketReference] = useState("");
