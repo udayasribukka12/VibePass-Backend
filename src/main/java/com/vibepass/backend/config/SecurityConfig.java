@@ -98,7 +98,8 @@ public class SecurityConfig {
         // Allow Vite on localhost ports during development
         config.setAllowedOriginPatterns(List.of(
                 "http://localhost:*",
-                "http://127.0.0.1:*"
+                "http://127.0.0.1:*",
+                "https://vibe-pass-frontend.vercel.app"
         ));
 
         config.setAllowedMethods(List.of(
