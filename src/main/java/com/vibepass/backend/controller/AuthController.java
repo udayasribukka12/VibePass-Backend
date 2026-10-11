@@ -14,7 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(originPatterns = {
+@CrossOrigin(origins = {
         "http://localhost:*",
         "https://vibe-pass-frontend.vercel.app"
 })

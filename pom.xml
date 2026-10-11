@@ -43,15 +43,11 @@
             <artifactId>spring-boot-starter-webmvc</artifactId>
         </dependency>
 
-        
-<!-- PostgreSQL for Neon -->
-<dependency>
-    <groupId>org.postgresql</groupId>
-    <artifactId>postgresql</artifactId>
-    <scope>runtime</scope>
-</dependency>
-
-
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <!-- Development Tools -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
